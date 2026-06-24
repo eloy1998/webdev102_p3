@@ -51,6 +51,7 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 ![Flashcards App Demo](./flashcards-demo.gif)
+https://imgur.com/a/flashcard-CJNGXcL
 
 ## How to Run
 
