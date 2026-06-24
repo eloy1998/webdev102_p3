@@ -8,8 +8,13 @@ export default function GuessingBox({ correctAnswer, onGuess, guessResult, isDis
     e.preventDefault()
     if (guess.trim() === '') return
 
-    // Exact match check (you can modify this for fuzzy matching)
-    const isCorrect = guess.toLowerCase() === correctAnswer.toLowerCase()
+    // Fuzzy matching - remove punctuation and compare
+    const cleanGuess = guess.toLowerCase().trim().replace(/[.,!?;:'-]/g, '')
+    const cleanAnswer = correctAnswer.toLowerCase().trim().replace(/[.,!?;:'-]/g, '')
+    
+    // Check for exact match or partial match (word contains)
+    const isCorrect = cleanGuess === cleanAnswer || cleanAnswer.includes(cleanGuess) || cleanGuess.includes(cleanAnswer)
+    
     onGuess(isCorrect)
     setGuess('')
   }
